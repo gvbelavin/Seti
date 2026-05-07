@@ -4,8 +4,8 @@
 
 Схема:
 - Docker контейнер БД: `lesson7-db`
-- Docker контейнер API: `lesson7-api` (порт `8010`)
-- Хостовый Nginx на `80` порту проксирует в `127.0.0.1:8010`
+- Docker контейнер API: `lesson7-api` (порт `8011`)
+- Хостовый Nginx на `80` порту проксирует в `127.0.0.1:8011`
 - Для RU IP/prefix на уровне Nginx срабатывает редирект на `/stub` с текстом `ВАМ СЮДА НЕЛЬЗЯ`
 
 ## 1) Собрать образ приложения
@@ -31,14 +31,20 @@ docker run -d --name lesson7-db ^
   postgres:16
 ```
 
-## 4) Запустить API в Docker (порт 8010 на хост)
+## 4) Запустить API в Docker (порт 8011 на хост)
 
 ```bash
 docker run -d --name lesson7-api ^
   --network lesson7-net ^
   -e DATABASE_URL=postgresql+psycopg2://postgres:postgres@lesson7-db:5432/lesson7_db ^
-  -p 8010:8010 ^
+  -p 8011:8010 ^
   lesson7-app
+```
+
+Если контейнер уже создан неудачно:
+
+```bash
+docker rm -f lesson7-api
 ```
 
 ## 5) Настроить хостовый Nginx
