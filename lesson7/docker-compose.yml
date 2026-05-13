@@ -21,7 +21,7 @@ services:
     container_name: lesson7-app
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8010:8010"
+      - "8010:8010"
     depends_on:
       db:
         condition: service_healthy
