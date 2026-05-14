@@ -8,7 +8,8 @@ FastAPI + Postgres в Docker, Nginx на хосте (вне Docker).
 docker compose up -d --build
 ```
 
-Приложение слушает только локальный интерфейс хоста: `127.0.0.1:8010`.
+Приложение слушает только локальный интерфейс хоста: `127.0.0.1:18010`.
+Nginx слушает `8080` и проксирует в приложение.
 
 ## Nginx (на хосте)
 
@@ -26,10 +27,10 @@ nginx -s reload
 ## Проверка
 
 ```bash
-curl "http://127.0.0.1/"
-curl "http://127.0.0.1/parse?url=http://quotes.toscrape.com"
-curl "http://127.0.0.1/quotes?limit=5"
-curl "http://127.0.0.1/stub"
+curl "http://127.0.0.1:8080/"
+curl "http://127.0.0.1:8080/parse?url=http://quotes.toscrape.com"
+curl "http://127.0.0.1:8080/quotes?limit=5"
+curl "http://127.0.0.1:8080/stub"
 ```
 
 ## Важно
