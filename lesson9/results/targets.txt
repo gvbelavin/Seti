@@ -1,0 +1,2 @@
+Container B IPv4: 172.22.0.3
+Container B IPv6: fd00:7::3

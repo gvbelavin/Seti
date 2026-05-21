@@ -1,0 +1,13 @@
+IPv4 vs IPv6 quick comparison
+=============================
+1) IPv4 packets use TTL field, IPv6 uses Hop Limit.
+2) IPv4 has Header Checksum in base header, IPv6 base header has no checksum.
+3) IPv4 base header is variable length, IPv6 base header is fixed 40 bytes.
+4) Fragmentation handling differs: IPv6 uses extension headers.
+
+See generated files:
+- ping_ipv4.txt
+- ping_ipv6.txt
+- lesson9_mix.pcap
+- lesson9-a_ip_a.txt
+- lesson9-b_ip_a.txt
